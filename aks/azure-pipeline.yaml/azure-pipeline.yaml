@@ -10,17 +10,17 @@ jobs:
     #vmImage: ubuntu-latest
   variables:
     az_region: "australiaeast"
-    resource_group_name: "yogesh"
-    subscription: "f314153c-8959-4b3b-be1a-0b59c1e97a6b"
+    resource_group_name: "yog"
+    subscription: "0600d38a-5064-48c7-a6aa-99a7ebc788f9"
     key_vault_name: demo-aks123xyz
-    sa_prefix: "f314153c-8959-4b3b-be1a-0b59c1e97a6b"
+    sa_prefix: "0600d38a-5064-48c7-a6aa-99a7ebc788f9"
     sa_container_name: "new-aks-demo"
     tfstateFile: terraform.tfstate
 
   steps:
   - task: AzureCLI@2
     inputs:
-      azureSubscription: 'f314153c-8959-4b3b-be1a-0b59c1e97a6b' #replace with your 
+      azureSubscription: '0600d38a-5064-48c7-a6aa-99a7ebc788f9' #replace with your 
       #service connection - azure resource manager service principal
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
@@ -48,7 +48,7 @@ jobs:
       command: 'plan'
       workingDirectory: '$(System.DefaultWorkingDirectory)/tf-files'
       commandOptions: '-out=tfplan'
-      environmentServiceNameAzureRM: 'akrish-poc-sp'
+      environmentServiceNameAzureRM: 'arm'
 
   - task: TerraformTaskV3@3
     displayName: Terraform Apply
@@ -57,4 +57,4 @@ jobs:
       command: 'apply'
       workingDirectory: '$(System.DefaultWorkingDirectory)/tf-files'
       commandOptions: 'tfplan'
-      environmentServiceNameAzureRM: '<service-connection-auth>'
+      environmentServiceNameAzureRM: 'arm'

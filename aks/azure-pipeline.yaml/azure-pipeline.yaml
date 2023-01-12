@@ -47,7 +47,7 @@ jobs:
       command: 'plan'
       workingDirectory: '$(System.DefaultWorkingDirectory)/tf-files'
       commandOptions: '-out=tfplan'
-      environmentServiceNameAzureRM: 'arm'
+      environmentServiceNameAzureRM: 'agent'
 
   - task: TerraformTaskV3@3
     displayName: Terraform Apply
@@ -56,4 +56,4 @@ jobs:
       command: 'apply'
       workingDirectory: '$(System.DefaultWorkingDirectory)/tf-files'
       commandOptions: 'tfplan'
-      environmentServiceNameAzureRM: 'arm'
+      environmentServiceNameAzureRM: 'agent'

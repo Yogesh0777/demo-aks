@@ -20,8 +20,7 @@ jobs:
   steps:
   - task: AzureCLI@2
     inputs:
-      azureSubscription: '0600d38a-5064-48c7-a6aa-99a7ebc788f9' #replace with your 
-      #service connection - azure resource manager service principal
+      azureSubscription: '0600d38a-5064-48c7-a6aa-99a7ebc788f9' 
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
       inlineScript: |

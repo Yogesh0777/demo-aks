@@ -21,7 +21,7 @@ jobs:
   - task: AzureCLI@2
     inputs:
       azureSubscription: 'f314153c-8959-4b3b-be1a-0b59c1e97a6b' #replace with your 
-      #service connection - azure resource manager service principal
+      service connection - azure resource manager service principal
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
       inlineScript: |
